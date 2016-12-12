@@ -24,7 +24,7 @@
 #include "MPU9250.h"
 #include "mbed_debug.h"
 
-#define MPU9250_DEBUG 1
+#define MPU9250_DEBUG 0
 
 MPU9250::MPU9250( I2C &i2c, InterruptIn* intr)
 {
