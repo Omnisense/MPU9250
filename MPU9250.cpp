@@ -123,11 +123,11 @@ uint8_t MPU9250::setParameters(MEMS_MODE opmode, ASCALE accelfs, MSCALE magfs, G
 #endif
             result = MPU9250::writeRegister(PWR_MGMT_1, &reg_val[0], 2);
             // sample rate, gyro config, accel config (normal mode)
-            reg_val[0] = 0x63;
-            reg_val[1] = DLPF_10;
+            reg_val[0] = 0x63;              // 15.63 Hz
+            reg_val[1] = DLPF_5;
             reg_val[2] = gyrofs;
             reg_val[3] = accelfs;
-            reg_val[4] = (ACCEL_BW_10);
+            reg_val[4] = (ACCEL_BW_5);
             reg_val[5] = ACCEL_DR_00781;
 #if MPU9250_DEBUG
             debug("MPU9250 cmd %d : %02x %02x %02x %02x %02x %02x\n", SMPLRT_DIV, reg_val[0], reg_val[1], reg_val[2], reg_val[3], reg_val[4], reg_val[5]);
@@ -155,7 +155,7 @@ uint8_t MPU9250::setParameters(MEMS_MODE opmode, ASCALE accelfs, MSCALE magfs, G
 #endif
             result = MPU9250::writeRegister(PWR_MGMT_1, &reg_val[0], 2);
             // sample rate, gyro config, accel config (normal mode)
-            reg_val[0] = 0x63;
+            reg_val[0] = 0x63;              // 15.63 Hz
             reg_val[1] = DLPF_10;
             reg_val[2] = gyrofs;
             reg_val[3] = accelfs;
@@ -194,11 +194,11 @@ uint8_t MPU9250::setParameters(MEMS_MODE opmode, ASCALE accelfs, MSCALE magfs, G
 #endif
             result = MPU9250::writeRegister(PWR_MGMT_1, &reg_val[0], 2);
             // sample rate, gyro config, accel config (normal mode)
-            reg_val[0] = 0x13;
-            reg_val[1] = DLPF_41;
+            reg_val[0] = 0x13;          // 50 Hz
+            reg_val[1] = DLPF_20;
             reg_val[2] = gyrofs;
             reg_val[3] = accelfs;
-            reg_val[4] = (ACCEL_BW_45);
+            reg_val[4] = (ACCEL_BW_21);
             reg_val[5] = ACCEL_DR_03125;
 #if MPU9250_DEBUG
             debug("MPU9250 cmd %d : %02x %02x %02x %02x %02x %02x\n", SMPLRT_DIV, reg_val[0], reg_val[1], reg_val[2], reg_val[3], reg_val[4], reg_val[5]);

@@ -227,7 +227,7 @@ public:
     
     /**
     *   @enum DLPF
-    *   @brief Filter BW for accelerometer
+    *   @brief Filter BW for gyro
     */
     enum DLPF {
         DLPF_250 = 0x00,
